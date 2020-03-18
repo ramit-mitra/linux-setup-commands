@@ -1,4 +1,5 @@
 #! /usr/bin/bash
+
 sudo dnf clean all && \
 sudo dnf check-update && \
 sudo dnf upgrade -y && \
