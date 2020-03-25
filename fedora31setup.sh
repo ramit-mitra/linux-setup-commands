@@ -17,12 +17,14 @@ sudo snap install skype --classic && \
 sudo snap install insomnia bluemail && \
 sudo snap install android-studio --classic && \
 sudo snap install snap-store && \
+sudo snap install glimpse-editor && \
 sudo dnf install gstreamer1-plugins-base gstreamer1-plugins-good gstreamer1-plugins-ugly gstreamer1-plugins-bad-free gstreamer1-plugins-bad-free gstreamer1-plugins-bad-freeworld gstreamer1-plugins-bad-free-extras ffmpeg -y && \
 sudo dnf install vlc -y && \
 sudo dnf install nodejs task -y && \
 sudo dnf install rust cargo -y && \
 sudo dnf install vlc -y && \
 sudo dnf install tlp tlp-rdw -y && \
+sudo dnf install nuntius -y && \
 sudo systemctl enable tlp -y && \
 sudo dnf remove docker \
                   docker-client \
@@ -63,4 +65,13 @@ npm install -g ts-node \
     @ionic/cli \
     create-react-app \
     react \
-    http-server
+    http-server && \
+echo "---------------------------------------------------------" && \
+echo "Setting up crazy python packages for rockstars" && \
+echo "https://developer.fedoraproject.org/tech/languages/python/pygobject.html" && \
+echo "---------------------------------------------------------" && \
+sudo dnf install -y pygobject3 python3-gobject libnotify libnotify-devel \
+    python2-notify python2-notify python3-notify2 python3-dbus dbus-x11 && \
+pip install dbus-python && \
+clear
+
