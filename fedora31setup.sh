@@ -75,7 +75,7 @@ sudo flatpak install flathub com.github.alainm23.planner -y && \
 sudo flatpak install flathub io.botfather.Botfather -y && \
 echo "---------------------------------------------------------" && \
 echo "Adding useful 3rd party plugins for audio & video playback" && \
-echo "-------------------------sudo gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 0--------------------------------" && \
+echo "---------------------------------------------------------" && \
 sudo dnf install gstreamer1-plugins-base gstreamer1-plugins-good \
     gstreamer1-plugins-ugly gstreamer1-plugins-bad-free \
     gstreamer1-plugins-bad-free gstreamer1-plugins-bad-freeworld \
