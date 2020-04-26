@@ -158,9 +158,9 @@ echo "---------------------------------------------------------" && \
 echo "Setting up a few crazy python packages for rockstars" && \
 echo "https://developer.fedoraproject.org/tech/languages/python/pygobject.html" && \
 echo "---------------------------------------------------------" && \
-sudo dnf install -y pygobject3 python3-gobject libnotify libnotify-devel \
+sudo dnf install -y python3-devel pygobject3 python3-gobject libnotify libnotify-devel \
     python2-notify python2-notify python3-notify2 python3-dbus dbus-x11 && \
-sudo pip install dbus-python Flask requests && \
+sudo pip install dbus-python Flask requests netifaces getmac randmac && \
 echo "---------------------------------------------------------" && \
 echo "Setting up PHP & Composer globally" && \
 echo "---------------------------------------------------------" && \
