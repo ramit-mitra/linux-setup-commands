@@ -30,6 +30,28 @@ sudo dnf install dnf-plugin-system-upgrade rpmconf -y && \
 systemctl enable crond.service && \
 sudo dnf install -y libzip && \
 echo "---------------------------------------------------------" && \
+echo "Installing TOR service and Browser" && \
+echo "---------------------------------------------------------" && \
+sudo dnf install privoxy tor torbrowser-launcher -y && \
+sudo service tor start && \
+sudo systemctl enable tor && \
+sudo sed -i 's/#        forward-socks5t/forward-socks5t/g' /etc/privoxy/config && \
+sudo service privoxy start && \
+sudo systemctl enable privoxy && \
+sudo netstat -ant | grep 8118 && \
+sudo export http_proxy="http://localhost:8118" && \
+sudo wget -q -O out http://www.ipchicken.com/; grep -o '[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}' out && \
+echo "---------------------------------------------------------" && \
+echo "Installed Tor Browser and Tor Proxy Service" && \
+echo "To start browsing anonymously, use the following proxy service in your browsers :: " && \
+echo "HTTP Proxy: localhost" && \
+echo "Port: 8118" && \
+echo "---------------------------------------------------------" && \
+echo "---------------------------------------------------------" && \
+echo "Installing Network monitoring packages" && \
+echo "---------------------------------------------------------" && \
+sudo dnf install nmap -y && \
+echo "---------------------------------------------------------" && \
 echo "Adding DNF Automatic to automate upgrade task" && \
 echo ">> https://dnf.readthedocs.io/en/latest/automatic.html" && \
 echo "---------------------------------------------------------" && \
@@ -53,14 +75,18 @@ sudo flatpak install flathub com.github.alainm23.planner -y && \
 sudo flatpak install flathub io.botfather.Botfather -y && \
 echo "---------------------------------------------------------" && \
 echo "Adding useful 3rd party plugins for audio & video playback" && \
-echo "---------------------------------------------------------" && \
+echo "-------------------------sudo gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 0--------------------------------" && \
 sudo dnf install gstreamer1-plugins-base gstreamer1-plugins-good \
     gstreamer1-plugins-ugly gstreamer1-plugins-bad-free \
     gstreamer1-plugins-bad-free gstreamer1-plugins-bad-freeworld \
     gstreamer1-plugins-bad-free-extras ffmpeg -y && \
+sudo gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 0
 echo "---------------------------------------------------------" && \
 echo "Installing DNF apps and programing languages/dev-tools - rustc, dotnet, nodejs, docker, etc" && \
 echo "---------------------------------------------------------" && \
+sudo dnf group install "Development Tools" -y && \
+sudo dnf install kernel-devel kernel-headers dkms -y && \
+sudo dnf install firewall-config -y && \
 sudo dnf install vlc nodejs task -y && \
 sudo dnf copr enable @dotnet-sig/dotnet -y && \
 sudo dnf install dotnet -y && \
