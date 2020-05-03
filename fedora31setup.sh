@@ -71,6 +71,7 @@ sudo snap install insomnia bluemail && \
 sudo snap install android-studio --classic && \
 sudo snap install snap-store && \
 sudo snap install glimpse-editor && \
+sudo snap install beekeeper-studio && \
 sudo flatpak install flathub com.github.alainm23.planner -y && \
 sudo flatpak install flathub io.botfather.Botfather -y && \
 echo "---------------------------------------------------------" && \
